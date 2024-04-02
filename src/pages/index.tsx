@@ -1,5 +1,7 @@
 import Head from "next/head";
+import Categories from "~/components/Categories";
 import Navbar from "~/components/Navbar";
+import Projects from "~/components/Projects";
 import Terminal from "~/components/Terminal";
 
 export default function Home() {
@@ -23,6 +25,8 @@ export default function Home() {
       <main className="font-jp">
         <Navbar />
         <Terminal />
+        <Categories />
+        <Projects />
       </main>
     </>
   );

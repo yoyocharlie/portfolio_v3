@@ -1,42 +1,49 @@
 import React, { useState, useEffect } from "react";
 import { TypeAnimation } from "react-type-animation";
+import useMousePosition from "~/hooks/useMousePosition";
 
 const Terminal = () => {
+  const mousePosition = useMousePosition();
   const [showSecondAnimation, setShowSecondAnimation] = useState(false);
   const [showThirdAnimation, setShowThirdAnimation] = useState(false);
-  const [showFourthAnimation, setShowFourthAnimation] = useState(false);
 
   useEffect(() => {
     const timeout1 = setTimeout(() => {
       setShowSecondAnimation(true);
-    }, 2500);
+    }, 3800);
 
     const timeout2 = setTimeout(() => {
       setShowThirdAnimation(true);
-    }, 5000);
-
-    const timeout3 = setTimeout(() => {
-      setShowFourthAnimation(true);
-    }, 9000);
+    }, 7000);
 
     return () => {
       clearTimeout(timeout1);
       clearTimeout(timeout2);
-      clearTimeout(timeout3);
     };
   }, []);
 
   const CURSOR_CLASS_NAME = "custom-type-animation-cursor";
 
+  const mouseX = mousePosition.x && mousePosition.x * 0.01;
+  const mouseY = mousePosition.y && mousePosition.y * 0.01;
+
   return (
-    <div className="relative mt-20">
-      <div className="container relative top-20 ml-auto mr-auto h-96 w-[90%] max-w-[800px] rounded-md bg-[#24292e] px-1 md:w-[80%]">
+    <div className="relative mt-28">
+      <div
+        className={`container ml-auto mr-auto h-36 w-[90%] max-w-[800px] rounded-md bg-black px-1 md:w-[80%]`}
+        // style={{
+        //   boxShadow: `-${mouseY}px -${mouseX}px gray`,
+        //   transform: `skewX(${mouseY}deg) skewY(${mouseX}deg)`,
+        // }}
+      >
         <TypeAnimation
           sequence={[
-            "C:\\Users\\JacobP\\portfolio>",
-            1000,
-            "C:\\Users\\JacobP\\portfolio> Oh...",
-            1000,
+            "Oh...",
+            500,
+            "I mean",
+            500,
+            "Hi there!",
+            500,
             (el) => el?.classList.remove(CURSOR_CLASS_NAME),
           ]}
           wrapper="h1"
@@ -46,17 +53,16 @@ const Terminal = () => {
             width: "100%",
           }}
           repeat={0}
-          className={`font-mono text-white ${CURSOR_CLASS_NAME}`}
+          className={`font-mono leading-loose text-white ${CURSOR_CLASS_NAME}`}
           cursor={false}
-          preRenderFirstString={true}
         />
         {showSecondAnimation && (
           <TypeAnimation
             sequence={[
-              "C:\\Users\\JacobP\\portfolio>",
-              1000,
-              "C:\\Users\\JacobP\\portfolio> Hi there!",
-              1000,
+              "I'm Jacob.",
+              500,
+              "I'm Jacob. The dev around here.",
+              1500,
               (el) => el?.classList.remove(CURSOR_CLASS_NAME),
             ]}
             wrapper="h1"
@@ -66,19 +72,14 @@ const Terminal = () => {
               width: "100%",
             }}
             repeat={0}
-            className={`font-mono text-white ${CURSOR_CLASS_NAME}`}
-            preRenderFirstString={true}
+            className={`font-mono leading-loose text-white ${CURSOR_CLASS_NAME}`}
             cursor={false}
           />
         )}
         {showThirdAnimation && (
           <TypeAnimation
             sequence={[
-              "C:\\Users\\JacobP\\portfolio>",
-              1000,
-              "C:\\Users\\JacobP\\portfolio> I'm Jacob. The dev around here.",
-              1000,
-              (el) => el?.classList.remove(CURSOR_CLASS_NAME),
+              "Take a look around and let me know if you need anything!",
             ]}
             wrapper="h1"
             speed={50}
@@ -87,27 +88,7 @@ const Terminal = () => {
               width: "100%",
             }}
             repeat={0}
-            className={`font-mono text-white ${CURSOR_CLASS_NAME}`}
-            cursor={false}
-            preRenderFirstString={true}
-          />
-        )}
-        {showFourthAnimation && (
-          <TypeAnimation
-            sequence={[
-              "C:\\Users\\JacobP\\portfolio>",
-              1000,
-              "C:\\Users\\JacobP\\portfolio> Take a look around and let me know if you need anything!",
-            ]}
-            wrapper="h1"
-            speed={50}
-            style={{
-              display: "inline-block",
-              width: "100%",
-            }}
-            repeat={0}
-            className={`font-mono text-white`}
-            preRenderFirstString={true}
+            className={`font-mono leading-loose text-white`}
           />
         )}
       </div>

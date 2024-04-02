@@ -1,27 +1,34 @@
 import React, { useState } from "react";
 import Sidebar from "./Sidebar";
+import Socials from "./Socials";
+import Link from "next/link";
 
 const Navbar = () => {
   const [openSideNav, setOpenSideNav] = useState<boolean>(false);
   return (
     <div
-      className={`flex h-16 items-center justify-between px-5 transition-all duration-500 ease-in-out ${openSideNav && "shadow-sm"}`}
+      className={`flex h-16 items-center justify-between px-5 transition-all duration-500 ease-in-out md:px-20 ${openSideNav && "shadow-md"}`}
     >
-      <span className="text-heading">Jacob Pixler</span>
+      <Link href={"#"} className="font-category2 text-heading">
+        Jacob Pixler
+      </Link>
       <button
         onClick={() => setOpenSideNav(!openSideNav)}
-        className="flex w-10 flex-col items-end gap-1"
+        className="flex flex-col items-end gap-1 md:hidden"
       >
         <div
-          className={`relative h-[2px] max-w-full bg-black transition-all ease-in-out ${openSideNav ? "top-[6px] w-5 rotate-[315deg]" : "w-4"}`}
+          className={`relative h-[2px] max-w-full bg-black transition-all ease-in-out ${openSideNav ? "top-[6px] w-6 rotate-[315deg]" : "w-5"}`}
         ></div>
         <div
-          className={`relative h-[2px] max-w-full bg-black transition-all ease-in-out ${openSideNav ? "w-5 rotate-[225deg]" : "w-5"}`}
+          className={`relative h-[2px] max-w-full bg-black transition-all ease-in-out ${openSideNav ? "w-6 rotate-[225deg]" : "w-6"}`}
         ></div>
         <div
-          className={`h-[2px] w-4 max-w-full bg-black transition-all ease-in-out ${openSideNav && "rotate-180 opacity-0"}`}
+          className={`relative h-[2px] w-5 max-w-full bg-black transition-all ease-in-out ${openSideNav && "rotate-180 opacity-0"}`}
         ></div>
       </button>
+      <div className="hidden md:block">
+        <Socials />
+      </div>
       <Sidebar openSideNav={openSideNav} setOpenSideNav={setOpenSideNav} />
     </div>
   );
