@@ -22,10 +22,12 @@ export default function Home() {
           key="description"
         />
       </Head>
-      <main className="font-jp">
-        <Navbar />
-        <Terminal />
-        <Categories />
+      <main className="font-category2">
+        <div className="h-[100vh]">
+          <Navbar />
+          <Terminal />
+          <Categories />
+        </div>
         <Projects />
       </main>
     </>

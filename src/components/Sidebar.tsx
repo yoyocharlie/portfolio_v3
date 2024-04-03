@@ -11,7 +11,7 @@ interface Props {
 const Sidebar = ({ openSideNav, setOpenSideNav }: Props) => {
   return (
     <div
-      className={`fixed -right-full bottom-0 top-16 z-[999] w-32 bg-black p-5 py-20 text-white shadow-md transition-all ease-in-out ${openSideNav && "right-0"}`}
+      className={`fixed -right-full bottom-0 top-16 z-[999] w-32 bg-black p-5 py-20 text-white transition-all ease-in-out ${openSideNav && "right-0 [filter:_drop-shadow(-5px_5px_6px_#0000005d)]"}`}
     >
       {/* <div className="font-mono">
         <p>how can i help you today?</p>

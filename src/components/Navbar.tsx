@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import Sidebar from "./Sidebar";
 import Socials from "./Socials";
 import Link from "next/link";
+import { useScrollPosition } from "~/hooks/useScrollPosition";
 
 const Navbar = () => {
   const [openSideNav, setOpenSideNav] = useState<boolean>(false);
+  const scrollPosition = useScrollPosition();
+
   return (
     <div
-      className={`flex h-16 items-center justify-between px-5 transition-all duration-500 ease-in-out md:px-20 ${openSideNav && "shadow-md"}`}
+      className={`fixed top-0 z-[500] flex h-16 w-full items-center justify-between bg-white px-5 transition-all duration-500 ease-in-out md:px-20 ${openSideNav && "shadow-md"} ${scrollPosition > 1 && "shadow-md"}`}
     >
       <Link href={"#"} className="font-category2 text-heading">
         Jacob Pixler
@@ -27,7 +30,7 @@ const Navbar = () => {
         ></div>
       </button>
       <div className="hidden md:block">
-        <Socials />
+        <Socials openSideNav={openSideNav} />
       </div>
       <Sidebar openSideNav={openSideNav} setOpenSideNav={setOpenSideNav} />
     </div>

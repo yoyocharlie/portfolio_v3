@@ -13,21 +13,19 @@ export default {
       },
       fontSize: {
         heading: "clamp(30px, 26.5217px + 1.087vi, 40px)",
-        category: "clamp(55px, 39.3478px + 4.8913vi, 100px);",
-      },
-      animation: {
-        tinyCircle: "tinyCircleAnimation 2s infinite linear",
+        category: "clamp(55px, 39.3478px + 4.8913vi, 100px)",
       },
       keyframes: {
-        tinyCircleAnimation: {
-          "0%": { transform: "translate(0px, 0px)" },
-          "25%": { transform: "translate(1px, -1px)" },
-          "50%": { transform: "translate(2px, -2px)" },
-          "75%": { transform: "translate(1px, -3px)" },
-          "100%": { transform: "translate(0px, 0px)" },
+        pulse: {
+          "20%, 50%, 60%": {
+            opacity: "0",
+          },
         },
       },
     },
   },
-  plugins: [],
+  daisyui: {
+    themes: [false],
+  },
+  plugins: [require("tailwindcss-animated"), require("daisyui")],
 } as Config;

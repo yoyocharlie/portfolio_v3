@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { TypeAnimation } from "react-type-animation";
 import useMousePosition from "~/hooks/useMousePosition";
 
+export const cursor_class = "custom-type-animation-cursor";
 const Terminal = () => {
-  const mousePosition = useMousePosition();
   const [showSecondAnimation, setShowSecondAnimation] = useState(false);
   const [showThirdAnimation, setShowThirdAnimation] = useState(false);
 
@@ -22,15 +22,10 @@ const Terminal = () => {
     };
   }, []);
 
-  const CURSOR_CLASS_NAME = "custom-type-animation-cursor";
-
-  const mouseX = mousePosition.x && mousePosition.x * 0.01;
-  const mouseY = mousePosition.y && mousePosition.y * 0.01;
-
   return (
-    <div className="relative mt-28">
+    <div className="relative mt-52">
       <div
-        className={`container ml-auto mr-auto h-36 w-[90%] max-w-[800px] rounded-md bg-black px-1 md:w-[80%]`}
+        className={`container ml-auto mr-auto h-36 w-[90%] max-w-[1400px] rounded-md bg-black px-1 md:w-[80%]`}
         // style={{
         //   boxShadow: `-${mouseY}px -${mouseX}px gray`,
         //   transform: `skewX(${mouseY}deg) skewY(${mouseX}deg)`,
@@ -44,7 +39,7 @@ const Terminal = () => {
             500,
             "Hi there!",
             500,
-            (el) => el?.classList.remove(CURSOR_CLASS_NAME),
+            (el) => el?.classList.remove(cursor_class),
           ]}
           wrapper="h1"
           speed={50}
@@ -53,7 +48,7 @@ const Terminal = () => {
             width: "100%",
           }}
           repeat={0}
-          className={`font-mono leading-loose text-white ${CURSOR_CLASS_NAME}`}
+          className={`font-mono leading-loose text-white ${cursor_class}`}
           cursor={false}
         />
         {showSecondAnimation && (
@@ -63,7 +58,7 @@ const Terminal = () => {
               500,
               "I'm Jacob. The dev around here.",
               1500,
-              (el) => el?.classList.remove(CURSOR_CLASS_NAME),
+              (el) => el?.classList.remove(cursor_class),
             ]}
             wrapper="h1"
             speed={50}
@@ -72,7 +67,7 @@ const Terminal = () => {
               width: "100%",
             }}
             repeat={0}
-            className={`font-mono leading-loose text-white ${CURSOR_CLASS_NAME}`}
+            className={`font-mono leading-loose text-white ${cursor_class}`}
             cursor={false}
           />
         )}

@@ -9,6 +9,10 @@
   background: #dac96d;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 @keyframes scaleUp {
   0% {
     transform: scale(1);

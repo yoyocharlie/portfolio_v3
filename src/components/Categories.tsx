@@ -4,10 +4,10 @@ import React from "react";
 
 const Categories = () => {
   return (
-    <div className="container ml-auto mr-auto w-[90%] max-w-[800px] md:w-[80%]">
+    <div className="container ml-auto mr-auto w-[90%] max-w-[1400px] md:w-[80%]">
       <div className="mb-10 mt-10 h-1 w-full bg-black"></div>
       <div>
-        <Link href="#" className="text-category font-category2">
+        <Link href="#projects" className="font-category2 text-category">
           <Image
             width={40}
             height={40}
@@ -19,7 +19,7 @@ const Categories = () => {
         </Link>
       </div>
       <div>
-        <Link href="#" className="text-category font-category2">
+        <Link href="#" className="font-category2 text-category">
           <Image
             width={40}
             height={40}
@@ -31,7 +31,7 @@ const Categories = () => {
         </Link>
       </div>
       <div>
-        <Link href="#" className="text-category font-category2">
+        <Link href="#" className="font-category2 text-category">
           <Image
             width={40}
             height={40}
