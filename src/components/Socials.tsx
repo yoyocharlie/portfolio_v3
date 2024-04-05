@@ -4,11 +4,6 @@ import { useQuery } from "@tanstack/react-query";
 import { getSocials } from "~/api";
 import { useState } from "react";
 
-type SocialData = {
-  title: string;
-  link: string;
-};
-
 interface Props {
   className?: string;
   openSideNav: boolean;
@@ -41,7 +36,7 @@ const Socials = ({ className, openSideNav }: Props) => {
 
   return (
     <div
-      className={`group flex items-center ${openSideNav ? "flex-col justify-center gap-14" : "gap-5"}`}
+      className={`group flex flex-col items-center justify-center gap-14 md:flex-row md:gap-5`}
     >
       {linkedLogos}
     </div>

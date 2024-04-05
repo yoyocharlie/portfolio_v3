@@ -3,31 +3,53 @@ import React, { useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { useSwipeable } from "react-swipeable";
 import { TypeAnimation } from "react-type-animation";
-import { Project } from "~/types";
 import { cursor_class } from "./Terminal";
+import type { Project } from "~/types";
 
 interface Props {
   project: Project;
 }
 
 const Project = ({ project }: Props) => {
-  const [open, setOpen] = useState(false);
   const { ref: sectionRef, inView: sectionInView } = useInView({
     threshold: 0,
+  });
+  const { ref: terminalRef, inView: terminalInView } = useInView({
+    threshold: 0,
+  });
+
+  const tech = project?.techSvgs?.techSvgs.map((svg) => {
+    return (
+      <span
+        className="tooltip tooltip-bottom max-w-8 shrink-0"
+        data-tip={svg.imageTitle}
+        key={svg.url}
+      >
+        <Image
+          src={svg.url}
+          alt={svg.imageTitle}
+          height={200}
+          width={200}
+          className="w-full"
+        />
+      </span>
+    );
   });
 
   return (
     <div
       ref={sectionRef}
-      className={`${sectionInView && "animate-fade-up"} mb-10`}
+      className={`${sectionInView && "animate-fade-up"} mb-16 mt-10`}
     >
       <h3 className="text-heading">{project.title}</h3>
-      <div>
+      <div className="md:flex md:gap-5">
         <Carousel projectTitle={project.title} urls={project.imgUrls} />
-        <div className="mt-4 flex flex-col gap-10 font-jp font-light md:flex-row md:justify-between">
-          <div className="order-2 md:order-1 md:basis-[48%]"></div>
+        <div
+          ref={terminalRef}
+          className="flex grow flex-col gap-10 font-jp font-light md:basis-[16%] md:justify-between"
+        >
           <div
-            className={`order-1 h-80 rounded-md bg-black px-2 font-mono text-white md:order-2 md:basis-[48%]`}
+            className={`order-1 h-44 rounded-md px-2 pt-1 md:h-60 md:bg-black md:font-mono md:text-sm md:text-white ${terminalInView && "animate-fade-up"}`}
           >
             <TypeAnimation
               sequence={[
@@ -54,6 +76,11 @@ const Project = ({ project }: Props) => {
               cursor={false}
             />
           </div>
+          <div
+            className={`order-2 flex gap-2 ${terminalInView && "animate-flip-up"}`}
+          >
+            {tech}
+          </div>
         </div>
       </div>
       <style global jsx>{`
@@ -79,7 +106,6 @@ interface CarouselProps {
 }
 
 const Carousel = ({ projectTitle, urls }: CarouselProps) => {
-  const [activeHash, setActiveHash] = useState(`#${projectTitle}slide0`);
   const handlers = useSwipeable({
     onSwipedLeft: () => {
       const hashString = window.location.hash.substring(1);
@@ -88,9 +114,6 @@ const Carousel = ({ projectTitle, urls }: CarouselProps) => {
         slideNumber = 0;
       }
       window.location.hash = `#${projectTitle}slide${slideNumber === urls.length - 1 ? 0 : slideNumber + 1}`;
-      setActiveHash(
-        `#${projectTitle}slide${slideNumber === urls.length - 1 ? 0 : slideNumber + 1}`,
-      );
     },
     onSwipedRight: () => {
       const hashString = window.location.hash.substring(1);
@@ -99,9 +122,6 @@ const Carousel = ({ projectTitle, urls }: CarouselProps) => {
         slideNumber = 0;
       }
       window.location.hash = `#${projectTitle}slide${slideNumber === 0 ? urls.length - 1 : slideNumber - 1}`;
-      setActiveHash(
-        `#${projectTitle}slide${slideNumber === 0 ? urls.length - 1 : slideNumber - 1}`,
-      );
     },
     trackMouse: true,
   });
@@ -125,22 +145,12 @@ const Carousel = ({ projectTitle, urls }: CarouselProps) => {
           <a
             href={`#${projectTitle}slide${i === 0 ? urls.length - 1 : i - 1}`}
             className="btn btn-circle border-none bg-black text-white hover:bg-white hover:text-black"
-            onClick={() =>
-              setActiveHash(
-                `#${projectTitle}slide${i === 0 ? urls.length - 1 : i - 1}`,
-              )
-            }
           >
             ❮
           </a>
           <a
             href={`#${projectTitle}slide${i === urls.length - 1 ? 0 : i + 1}`}
             className="btn btn-circle border-none bg-black text-white hover:bg-white hover:text-black"
-            onClick={() =>
-              setActiveHash(
-                `#${projectTitle}slide${i === urls.length - 1 ? 0 : i + 1}`,
-              )
-            }
           >
             ❯
           </a>
@@ -149,21 +159,9 @@ const Carousel = ({ projectTitle, urls }: CarouselProps) => {
     );
   });
 
-  const dots = urls.map((url, i) => {
-    return (
-      <a
-        href={`#${projectTitle}slide${i}`}
-        key={`dotFor${url}`}
-        className={`h-2 w-2 rounded-full border-2 border-black transition-all ease-in-out ${activeHash === `#${projectTitle}slide${i}` ? "bg-black" : "bg-white"}`}
-        onClick={() => setActiveHash(`#${projectTitle}slide${i}`)}
-      ></a>
-    );
-  });
-
   return (
-    <div>
+    <div className="md:basis-[60%]">
       <div className="carousel w-full">{images}</div>
-      <div className="flex justify-center gap-3">{dots}</div>
     </div>
   );
 };

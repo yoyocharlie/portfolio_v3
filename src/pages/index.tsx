@@ -1,4 +1,5 @@
 import Head from "next/head";
+import About from "~/components/About";
 import Categories from "~/components/Categories";
 import Navbar from "~/components/Navbar";
 import Projects from "~/components/Projects";
@@ -28,6 +29,7 @@ export default function Home() {
           <Terminal />
           <Categories />
         </div>
+        <About />
         <Projects />
       </main>
     </>

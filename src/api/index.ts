@@ -16,7 +16,18 @@ export const getProjects = async () => {
   const data = await api.fetch<Project[]>(`*[_type == "project"] {
     title,
     'description': description[0].children[0].text,
-    'imgUrls': images[].asset->url
+    'imgUrls': images[].asset->url,
+    'techSvgs': {techSvgs[]{'url': asset->url, imageTitle}}
+  }`);
+
+  return data;
+};
+
+export const getAboutMe = async () => {
+  const data = await api.fetch<{
+    description: string;
+  }>(`*[_type == "about"][0] {
+    'description': description[0].children[0].text,
   }`);
 
   return data;
