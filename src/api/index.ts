@@ -24,11 +24,15 @@ export const getProjects = async () => {
 };
 
 export const getAboutMe = async () => {
-  const data = await api.fetch<{
-    description: string;
-  }>(`*[_type == "about"][0] {
-    'description': description[0].children[0].text,
+  const data = await api.fetch<
+    [
+      {
+        description: string[];
+      },
+    ]
+  >(`*[_type == "about"] {
+    "description": description[].children[].text
   }`);
 
-  return data;
+  return data[0];
 };

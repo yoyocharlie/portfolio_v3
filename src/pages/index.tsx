@@ -4,6 +4,7 @@ import Categories from "~/components/Categories";
 import Navbar from "~/components/Navbar";
 import Projects from "~/components/Projects";
 import Terminal from "~/components/Terminal";
+import Tiles from "~/components/Tiles";
 
 export default function Home() {
   return (
@@ -30,6 +31,7 @@ export default function Home() {
           <Categories />
         </div>
         <About />
+        <Tiles />
         <Projects />
       </main>
     </>

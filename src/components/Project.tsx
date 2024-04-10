@@ -11,11 +11,13 @@ interface Props {
 }
 
 const Project = ({ project }: Props) => {
-  const { ref: sectionRef, inView: sectionInView } = useInView({
+  const { ref: projectRef, inView: projectInView } = useInView({
     threshold: 0,
+    triggerOnce: true,
   });
   const { ref: terminalRef, inView: terminalInView } = useInView({
     threshold: 0,
+    triggerOnce: true,
   });
 
   const tech = project?.techSvgs?.techSvgs.map((svg) => {
@@ -38,15 +40,15 @@ const Project = ({ project }: Props) => {
 
   return (
     <div
-      ref={sectionRef}
-      className={`${sectionInView && "animate-fade-up"} mb-16 mt-10`}
+      ref={projectRef}
+      className={`${projectInView && "animate-fade-up"} mb-16 mt-10`}
     >
       <h3 className="text-heading">{project.title}</h3>
       <div className="md:flex md:gap-5">
         <Carousel projectTitle={project.title} urls={project.imgUrls} />
         <div
           ref={terminalRef}
-          className="flex grow flex-col gap-10 font-jp font-light md:basis-[16%] md:justify-between"
+          className="text-body flex grow flex-col gap-10 font-sans md:basis-[16%] md:justify-between md:font-light"
         >
           <div
             className={`order-1 h-44 rounded-md px-2 pt-1 md:h-60 md:bg-black md:font-mono md:text-sm md:text-white ${terminalInView && "animate-fade-up"}`}
@@ -71,7 +73,7 @@ const Project = ({ project }: Props) => {
                 `${project.description}`,
               ]}
               wrapper="p"
-              speed={65}
+              speed={75}
               repeat={0}
               cursor={false}
             />

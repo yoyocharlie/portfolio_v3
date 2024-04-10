@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { TypeAnimation } from "react-type-animation";
-import useMousePosition from "~/hooks/useMousePosition";
 
 export const cursor_class = "custom-type-animation-cursor";
 const Terminal = () => {
@@ -23,7 +22,7 @@ const Terminal = () => {
   }, []);
 
   return (
-    <div className="relative mt-52">
+    <div className="relative mt-32">
       <div
         className={`container ml-auto mr-auto h-36 w-[90%] max-w-[1400px] rounded-md bg-black px-1 md:w-[80%]`}
         // style={{
