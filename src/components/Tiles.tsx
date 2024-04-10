@@ -36,7 +36,7 @@ const Tiles = () => {
                   />
                   <span className="text-sm font-medium">tRPC</span>
                 </Link>
-                <span>For building type-safe RCP APIs</span>
+                <span>For building type-safe RPC APIs</span>
               </li>
               <li className="mb-3 flex items-start gap-5">
                 <Link
