@@ -20,20 +20,13 @@ const Project = ({ project }: Props) => {
     triggerOnce: true,
   });
 
-  const tech = project?.techSvgs?.techSvgs.map((svg) => {
+  const tech = project?.tech.map((name) => {
     return (
       <span
-        className="tooltip tooltip-bottom max-w-8 shrink-0"
-        data-tip={svg.imageTitle}
-        key={svg.url}
+        className="rounded-md bg-black px-2 py-1 text-sm font-extralight text-white"
+        key={name}
       >
-        <Image
-          src={svg.url}
-          alt={svg.imageTitle}
-          height={200}
-          width={200}
-          className="w-full"
-        />
+        {name}
       </span>
     );
   });
@@ -79,7 +72,7 @@ const Project = ({ project }: Props) => {
             />
           </div>
           <div
-            className={`order-2 flex gap-2 ${terminalInView && "animate-flip-up"}`}
+            className={`order-2 mt-4 flex flex-wrap gap-2 ${terminalInView && "animate-flip-up"}`}
           >
             {tech}
           </div>

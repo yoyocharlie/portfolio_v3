@@ -15,10 +15,9 @@ export const getSocials = async () => {
 export const getProjects = async () => {
   const data = await api.fetch<Project[]>(`*[_type == "project"] {
     title,
+    tech,
     'description': description[0].children[0].text,
-    'imgUrls': images[].asset->url,
-    'techSvgs': {techSvgs[]{'url': asset->url, imageTitle}}
-  }`);
+    'imgUrls': images[].asset->url  }`);
 
   return data;
 };

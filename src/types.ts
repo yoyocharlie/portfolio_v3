@@ -3,14 +3,9 @@ export type Social = {
   link: string;
 };
 
-type TechSvg = {
-  url: string;
-  imageTitle: string;
-};
-
 export type Project = {
   title: string;
   description: string;
   imgUrls: string[];
-  techSvgs: { techSvgs: TechSvg[] };
+  tech: string[];
 };
