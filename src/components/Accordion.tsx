@@ -151,9 +151,12 @@ const Accordion: React.FC = () => {
               Jira
             </Link>{" "}
             for project management, and I&apos;ve noticed how invaluable
-            automations are to our workflow. <b>To spare you the long read</b>,
-            I&apos;m building an app for Jira that may or may not have something
-            to do with automations 🤓
+            automations are to our workflow.
+          </div>
+          <div className="mb-5">
+            <span className="font-medium">TLDR;</span> I&apos;m building an app
+            for Jira that may or may not have something to do with automations
+            🤓
           </div>
           <div>
             <h2 className="mb-3 font-medium">What tech am I using?</h2>

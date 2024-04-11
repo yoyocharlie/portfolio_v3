@@ -5,8 +5,16 @@ import Image from "next/image";
 const Tiles = () => {
   return (
     <div className="container relative ml-auto mr-auto hidden w-[90%] max-w-[1400px] gap-5 md:w-[80%] lg:grid lg:grid-cols-2 lg:grid-rows-2">
+      <div id="about-me-tiles" className="absolute -top-[70px]"></div>
       <div className="p-5">
-        <div className="mb-5 text-3xl">Favorite Tech Right Now</div>
+        <div className="mb-5 text-3xl">
+          <Link className="group" href={"#about-me-tiles"}>
+            Favorite Tech Right Now{" "}
+            <span className="opacity-0 transition-all ease-in-out group-hover:inline-block group-hover:opacity-100">
+              #
+            </span>
+          </Link>
+        </div>
         <div className="text-body font-sans">
           <div className="mb-5">
             Lately I&apos;ve been enjoying scaffolding applications with{" "}
@@ -161,9 +169,12 @@ const Tiles = () => {
               Jira
             </Link>{" "}
             for project management, and I&apos;ve noticed how invaluable
-            automations are to our workflow. <b>To spare you the long read</b>,
-            I&apos;m building an app for Jira that may or may not have something
-            to do with automations 🤓
+            automations are to our workflow.
+          </div>
+          <div className="mb-5">
+            <span className="font-medium">TLDR;</span> I&apos;m building an app
+            for Jira that may or may not have something to do with automations
+            🤓
           </div>
           <div>
             <h2 className="mb-3 font-medium">What tech am I using?</h2>
