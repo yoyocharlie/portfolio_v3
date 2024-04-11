@@ -25,7 +25,7 @@ const Socials = ({ className, openSideNav }: Props) => {
           height={30}
           alt={social.title}
           src={`/images/socials/${social.title}.svg`}
-          className={`transition-all ease-in-out hover:translate-y-1 ${hoveredLink === social.title ? "" : "group-hover:contrast-50"} ${className ? className : ""}`}
+          className={`transition-all ease-in-out hover:translate-y-1 ${className ? className : ""}`}
           // style={{ filter: hoveredLink === social.title ? "" : "blur(8px)" }}
           onMouseEnter={() => setHoveredLink(social.title)}
           onMouseLeave={() => setHoveredLink(null)}
@@ -36,7 +36,7 @@ const Socials = ({ className, openSideNav }: Props) => {
 
   return (
     <div
-      className={`group flex flex-col items-center justify-center gap-14 md:flex-row md:gap-5`}
+      className={`flex flex-col items-center justify-center gap-14 md:flex-row md:gap-5`}
     >
       {linkedLogos}
     </div>
