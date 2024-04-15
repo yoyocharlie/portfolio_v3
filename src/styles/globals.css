@@ -6,7 +6,8 @@
 @tailwind utilities;
 
 *::selection {
-  background: #dac96d;
+  background: black;
+  color: white;
 }
 
 html {
@@ -28,4 +29,36 @@ html {
 .scale-up-down-animation {
   animation: scaleUp 0.3s ease-in-out infinite forwards;
   animation-delay: 0.3s; /* Adjust the delay as needed */
+}
+
+#markdown {
+  h1 {
+    font-size: clamp(22px, 19.2174px + 0.8696vi, 30px);
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  h2 {
+    font-size: clamp(20px, 17.2174px + 0.8696vi, 28px);
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+  h3 {
+    font-size: clamp(18px, 15.2174px + 0.8696vi, 26px);
+    margin-bottom: 10px;
+  }
+  ol,
+  ul {
+    margin-bottom: 5px;
+  }
+  ul li {
+    margin-left: 20px;
+    list-style: disc;
+  }
+  ol li {
+    margin-left: 20px;
+    list-style: decimal;
+  }
+  hr {
+    margin: 20px 0;
+  }
 }

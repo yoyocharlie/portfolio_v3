@@ -23,7 +23,7 @@ const Project = ({ project }: Props) => {
   const tech = project?.tech.map((name) => {
     return (
       <span
-        className="rounded-md bg-black px-2 py-1 text-sm font-extralight text-white"
+        className="h-fit rounded-md bg-black px-2 py-1 text-sm font-extralight text-white"
         key={name}
       >
         {name}
@@ -34,17 +34,19 @@ const Project = ({ project }: Props) => {
   return (
     <div
       ref={projectRef}
-      className={`${projectInView && "animate-fade-up"} mb-16 mt-10`}
+      className={`${projectInView ? "animate-fade-up" : ""} mb-16 mt-10`}
     >
       <h3 className="text-heading">{project.title}</h3>
       <div className="md:flex md:gap-5">
-        <Carousel projectTitle={project.title} urls={project.imgUrls} />
+        {project.imgUrls?.length > 0 && (
+          <Carousel projectTitle={project.title} urls={project.imgUrls} />
+        )}
         <div
           ref={terminalRef}
-          className="text-body flex grow flex-col gap-10 font-sans md:basis-[16%] md:justify-between md:font-light"
+          className={`flex grow font-sans text-body md:font-light ${!project.imgUrls ? "w-full flex-col gap-5 md:flex-row" : "flex-col gap-10 md:basis-[16%] md:justify-between"} `}
         >
           <div
-            className={`order-1 h-44 rounded-md px-2 pt-1 md:h-60 md:bg-black md:font-mono md:text-sm md:text-white ${terminalInView && "animate-fade-up"}`}
+            className={`${!project.imgUrls ? "md:basis-[60%]" : ""} order-1 h-40 rounded-md px-2 pt-1 md:h-60 md:bg-black md:font-mono md:text-sm md:text-white ${terminalInView && "animate-fade-up"}`}
           >
             <TypeAnimation
               sequence={[
@@ -57,7 +59,7 @@ const Project = ({ project }: Props) => {
               speed={60}
               repeat={0}
               cursor={false}
-              className={`${cursor_class} mb-2`}
+              className={`${cursor_class} mb-2 font-medium`}
             />
             <TypeAnimation
               sequence={[
@@ -72,7 +74,7 @@ const Project = ({ project }: Props) => {
             />
           </div>
           <div
-            className={`order-2 mt-4 flex flex-wrap gap-2 ${terminalInView && "animate-flip-up"}`}
+            className={`${!project.imgUrls ? "h-fit basis-[35%]" : ""} order-2 flex flex-wrap gap-2 ${terminalInView && "animate-flip-up"}`}
           >
             {tech}
           </div>

@@ -1,6 +1,8 @@
 import Head from "next/head";
 import About from "~/components/About";
 import Categories from "~/components/Categories";
+import Contact from "~/components/Contact";
+import Footer from "~/components/Footer";
 import Navbar from "~/components/Navbar";
 import Projects from "~/components/Projects";
 import Terminal from "~/components/Terminal";
@@ -33,6 +35,8 @@ export default function Home() {
         <About />
         <Tiles />
         <Projects />
+        <Contact />
+        <Footer />
       </main>
     </>
   );

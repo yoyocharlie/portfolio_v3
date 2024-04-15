@@ -31,7 +31,7 @@ const Categories = () => {
         </Link>
       </div>
       <div>
-        <Link href="#" className="font-category2 text-category">
+        <Link href="#contact" className="font-category2 text-category">
           <Image
             width={40}
             height={40}

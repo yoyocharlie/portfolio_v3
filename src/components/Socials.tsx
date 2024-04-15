@@ -6,7 +6,7 @@ import { useState } from "react";
 
 interface Props {
   className?: string;
-  openSideNav: boolean;
+  openSideNav?: boolean;
 }
 
 const Socials = ({ className, openSideNav }: Props) => {

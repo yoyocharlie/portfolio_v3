@@ -18,8 +18,13 @@ export const getProjects = async () => {
     tech,
     'description': description[0].children[0].text,
     'imgUrls': images[].asset->url  }`);
+  const order = ["Gena", "Biscuit", "Pretzel"];
 
-  return data;
+  const sortedData: Project[] = data.sort((a, b) => {
+    return order.indexOf(a.title) - order.indexOf(b.title);
+  });
+
+  return sortedData;
 };
 
 export const getAboutMe = async () => {

@@ -68,6 +68,11 @@ const Projects = () => {
           <span className="inline-block h-[4px] w-[clamp(30px,_26.5217px_+_1.087vi,_40px)] animate-pulse bg-black animate-normal animate-duration-1000 animate-fill-forwards animate-ease-out"></span>
         </span>
       </h2>
+      <p className="font-sans text-body font-medium">
+        Currently my projects are all internal tools, so I can&apos;t share the
+        repositories, but I can tell you what I&apos;ve been up to behind the
+        scenes!
+      </p>
       <div>{projectCards}</div>
     </div>
   );

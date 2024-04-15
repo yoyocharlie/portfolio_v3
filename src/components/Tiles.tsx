@@ -6,7 +6,7 @@ const Tiles = () => {
   return (
     <div className="container relative ml-auto mr-auto hidden w-[90%] max-w-[1400px] gap-5 md:w-[80%] lg:grid lg:grid-cols-2 lg:grid-rows-2">
       <div id="about-me-tiles" className="absolute -top-[70px]"></div>
-      <div className="p-5">
+      <div className="rounded-lg bg-[#404040] p-5 text-white">
         <div className="mb-5 text-3xl">
           <Link className="group" href={"#about-me-tiles"}>
             Favorite Tech Right Now{" "}
@@ -15,13 +15,13 @@ const Tiles = () => {
             </span>
           </Link>
         </div>
-        <div className="text-body font-sans">
+        <div className="font-sans text-body">
           <div className="mb-5">
             Lately I&apos;ve been enjoying scaffolding applications with{" "}
             <Link
               target="_blank"
               href={"https://create.t3.gg/"}
-              className="bg-gradient-to-r from-purple-900 to-purple-400 bg-clip-text font-semibold text-transparent"
+              className="bg-gradient-to-r from-purple-700 to-purple-400 bg-clip-text font-semibold text-transparent"
             >
               Create T3 App
             </Link>{" "}
@@ -29,7 +29,7 @@ const Tiles = () => {
           </div>
           <div>
             <div className="mb-4 font-medium">My favorite tools include 👇</div>
-            <ul className="text-body max-w-[500px] font-light">
+            <ul className="max-w-[500px] text-body font-light">
               <li className="mb-3 flex items-start gap-5">
                 <Link
                   target="_blank"
@@ -106,9 +106,9 @@ const Tiles = () => {
           </div>
         </div>
       </div>
-      <div className="row-span-2 rounded-lg bg-[#404040] p-5 text-white">
+      <div className="row-span-2 p-5">
         <div className="mb-5 text-3xl">Non-Programming Stuff</div>
-        <div className="text-body font-sans font-extralight">
+        <div className="font-sans text-body font-extralight">
           <div className="mb-5">
             When I&apos;m not programming, I&apos;m usually making music or
             staring at the milk in the fridge — trying to find the milk in the
@@ -156,15 +156,15 @@ const Tiles = () => {
           </div>
         </div>
       </div>
-      <div className="p-5">
+      <div className="rounded-lg bg-[#404040] p-5 text-white">
         <div className="mb-5 text-3xl">Current Project</div>
-        <div className="text-body font-sans">
+        <div className="font-sans text-body">
           <div className="mb-5">
             I&apos;m part of an agile team that uses{" "}
             <Link
               href={"https://www.atlassian.com/software/jira"}
               target="_blank"
-              className="bg-gradient-to-r from-blue-900 to-blue-400 bg-clip-text font-semibold text-transparent"
+              className="bg-gradient-to-r from-blue-700 to-blue-400 bg-clip-text font-semibold text-transparent"
             >
               Jira
             </Link>{" "}
@@ -183,7 +183,7 @@ const Tiles = () => {
               and so much more! Including{" "}
               <Link
                 target="_blank"
-                className="bg-gradient-to-r from-blue-900 to-blue-400 bg-clip-text font-semibold text-transparent"
+                className="bg-gradient-to-r from-blue-700 to-blue-400 bg-clip-text font-semibold text-transparent"
                 href={
                   "https://developer.atlassian.com/cloud/jira/platform/getting-started-with-connect/"
                 }
