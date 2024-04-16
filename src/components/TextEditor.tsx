@@ -26,7 +26,7 @@ const TextEditor = ({ message, setMessage }: Props) => {
         id="markdown"
         className="relative max-h-[500px] w-full overflow-y-auto font-sans text-sm md:w-1/2"
       >
-        <h3 className="sticky top-0 bg-white font-category2">Email Preview</h3>
+        <h3 className="sticky top-1 bg-white font-category2">Email Preview</h3>
         <Markdown value={message} />
       </div>
     </div>
