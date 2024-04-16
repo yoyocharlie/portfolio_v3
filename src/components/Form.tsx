@@ -31,7 +31,7 @@ const Form = () => {
       <div className="group relative mb-5">
         <label
           htmlFor="name"
-          className={`absolute left-4 top-[15px] transition-all ease-in-out group-focus-within:-top-6 group-focus-within:left-1 group-focus-within:text-sm ${watch("name") ? "-top-6 left-1 text-sm text-black" : "text-gray-400"}`}
+          className={`absolute transition-all ease-in-out group-focus-within:-top-6 group-focus-within:left-1 group-focus-within:text-sm ${watch("name") ? "-top-6 left-1 text-sm text-black" : "left-4 top-[15px] text-gray-400"}`}
         >
           Name
         </label>
@@ -46,7 +46,7 @@ const Form = () => {
       <div className="group relative mb-5 mt-10">
         <label
           htmlFor="email"
-          className={`absolute left-4 top-[15px] transition-all ease-in-out group-focus-within:-top-6 group-focus-within:left-1 group-focus-within:text-sm ${watch("email") ? "-top-6 left-1 text-sm text-black" : "text-gray-400"}`}
+          className={`absolute transition-all ease-in-out group-focus-within:-top-6 group-focus-within:left-1 group-focus-within:text-sm ${watch("email") ? "-top-6 left-1 text-sm text-black" : "left-4 top-[15px] text-gray-400"}`}
         >
           Email Address
         </label>
