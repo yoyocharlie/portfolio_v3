@@ -3,9 +3,18 @@ import nodemailer from "nodemailer";
 import type Mail from "nodemailer/lib/mailer";
 
 export default async function handler(request: NextRequest) {
-  const body = JSON.stringify(request.body);
+  let body = "";
+  if (typeof request.body === "string") {
+    body = request.body;
+  } else if (request.body instanceof ReadableStream) {
+    const reader = request.body.getReader();
+    const { value, done } = await reader.read();
+    if (!done) {
+      body = new TextDecoder("utf-8").decode(value);
+    }
+  }
+
   const { email, name, message } = JSON.parse(body);
-  console.log("\x1b[36m%s\x1b[0m", email);
 
   const transport = nodemailer.createTransport({
     service: "gmail",
