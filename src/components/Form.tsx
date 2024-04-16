@@ -3,7 +3,6 @@ import sendEmail from "~/utils/send-email";
 import TextEditor from "./TextEditor";
 import { useState } from "react";
 import Link from "next/link";
-import Socials from "./Socials";
 
 export type FormData = {
   name: string;
@@ -14,7 +13,7 @@ export type FormData = {
 const Form = () => {
   const [message, setMessage] = useState<string>("");
 
-  const { register, handleSubmit, watch } = useForm<FormData>();
+  const { register, handleSubmit, watch, reset } = useForm<FormData>();
 
   function onSubmit(data: FormData) {
     const sanitizedData = {
@@ -24,6 +23,8 @@ const Form = () => {
     };
 
     sendEmail(sanitizedData);
+    reset();
+    setMessage("");
   }
 
   return (

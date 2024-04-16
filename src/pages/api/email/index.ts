@@ -27,7 +27,7 @@ export default async function handler(request: NextRequest) {
   const mailOptions: Mail.Options = {
     from: process.env.MY_EMAIL,
     to: process.env.MY_EMAIL,
-    subject: `Message from ${name} (${email})`,
+    subject: `From Portflio: ${name} (${email})`,
     html: message,
   };
 
