@@ -3,6 +3,8 @@ import sendEmail from "~/utils/send-email";
 import TextEditor from "./TextEditor";
 import { useState } from "react";
 import Link from "next/link";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export type FormData = {
   name: string;
@@ -13,7 +15,8 @@ export type FormData = {
 const Form = () => {
   const [message, setMessage] = useState<string>("");
 
-  const { register, handleSubmit, watch, reset } = useForm<FormData>();
+  const { register, handleSubmit, watch, reset, formState } =
+    useForm<FormData>();
 
   function onSubmit(data: FormData) {
     const sanitizedData = {
@@ -25,6 +28,30 @@ const Form = () => {
     sendEmail(sanitizedData);
     reset();
     setMessage("");
+    if (formState.isSubmitSuccessful) {
+      toast.success("🎉 Message sent successfully!", {
+        position: "bottom-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
+    if (!formState.isSubmitSuccessful) {
+      toast.error("🧐 Message failed to send", {
+        position: "bottom-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
   }
 
   return (
@@ -78,9 +105,25 @@ const Form = () => {
       </div>
       <div>
         <button className="hover:shadow-form w-full rounded-md bg-black px-8 py-3 text-white outline-none md:w-[50%]">
-          Send Message
+          {formState.isSubmitting ? (
+            <span className="loading loading-dots loading-md"></span>
+          ) : (
+            "Send Message"
+          )}
         </button>
       </div>
+      <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </form>
   );
 };

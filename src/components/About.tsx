@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
 import { useInView } from "react-intersection-observer";
 import { getAboutMe } from "~/api";
 import Accordion from "./Accordion";

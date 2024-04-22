@@ -37,7 +37,7 @@ const Navbar = () => {
       </button>
       <div className="hidden items-center gap-5 md:flex">
         <Link
-          download={false}
+          rel="noopener noreferrer"
           target="_blank"
           href={`${resumeUrl}`}
           className="font-mono text-lg"

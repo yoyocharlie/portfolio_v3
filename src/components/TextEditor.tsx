@@ -1,6 +1,6 @@
 import Markdown from "marked-react";
 import Editor from "@monaco-editor/react";
-import type { Dispatch, SetStateAction } from "react";
+import { useEffect, type Dispatch, type SetStateAction } from "react";
 
 interface Props {
   message: string;
@@ -20,6 +20,7 @@ const TextEditor = ({ message, setMessage }: Props) => {
           defaultLanguage="markdown"
           theme="vs-dark"
           onChange={handleEditorChange}
+          value={message}
         />
       </div>
       <div

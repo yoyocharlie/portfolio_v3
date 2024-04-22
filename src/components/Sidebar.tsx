@@ -14,7 +14,7 @@ const Sidebar = ({ openSideNav, resumeUrl }: Props) => {
     >
       <div className="h-full">
         <Link
-          download={false}
+          rel="noopener noreferrer"
           target="_blank"
           href={`${resumeUrl}`}
           className="m-auto flex text-center font-mono tracking-[5px] [text-orientation:_upright] [writing-mode:__vertical-rl]"
