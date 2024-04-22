@@ -28,20 +28,8 @@ const Form = () => {
     sendEmail(sanitizedData);
     reset();
     setMessage("");
-    if (formState.isSubmitSuccessful) {
+    if (formState.isSubmitted) {
       toast.success("🎉 Message sent successfully!", {
-        position: "bottom-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
-    }
-    if (!formState.isSubmitSuccessful) {
-      toast.error("🧐 Message failed to send", {
         position: "bottom-center",
         autoClose: 5000,
         hideProgressBar: false,
