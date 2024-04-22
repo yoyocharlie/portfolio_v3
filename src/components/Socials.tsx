@@ -36,7 +36,7 @@ const Socials = ({ className, openSideNav }: Props) => {
 
   return (
     <div
-      className={`flex flex-col items-center justify-center gap-14 md:flex-row md:gap-5`}
+      className={`flex flex-col items-center justify-center gap-10 md:flex-row md:gap-5`}
     >
       {linkedLogos}
     </div>
