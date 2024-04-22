@@ -36,7 +36,12 @@ const Navbar = () => {
         ></div>
       </button>
       <div className="hidden items-center gap-5 md:flex">
-        <Link href={`${resumeUrl}`} className="font-mono text-lg">
+        <Link
+          download={false}
+          target="_blank"
+          href={`${resumeUrl}`}
+          className="font-mono text-lg"
+        >
           resumé
         </Link>
         <div>|</div>
