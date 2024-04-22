@@ -40,3 +40,11 @@ export const getAboutMe = async () => {
 
   return data[0];
 };
+
+export const getResume = async () => {
+  const data = await api.fetch<{ url: string }>(`*[_type == "resume"][0] {
+    'url': file.asset->url
+  }`);
+
+  return data.url;
+};

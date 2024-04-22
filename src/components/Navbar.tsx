@@ -3,10 +3,16 @@ import Sidebar from "./Sidebar";
 import Socials from "./Socials";
 import Link from "next/link";
 import { useScrollPosition } from "~/hooks/useScrollPosition";
+import { useQuery } from "@tanstack/react-query";
+import { getResume } from "~/api";
 
 const Navbar = () => {
   const [openSideNav, setOpenSideNav] = useState<boolean>(false);
   const scrollPosition = useScrollPosition();
+  const { data: resumeUrl } = useQuery({
+    queryKey: ["resume"],
+    queryFn: getResume,
+  });
 
   return (
     <div
@@ -29,10 +35,14 @@ const Navbar = () => {
           className={`relative h-[2px] w-5 max-w-full bg-black transition-all ease-in-out ${openSideNav && "rotate-180 opacity-0"}`}
         ></div>
       </button>
-      <div className="hidden md:block">
+      <div className="hidden items-center gap-5 md:flex">
+        <Link href={`${resumeUrl}`} className="font-mono text-lg">
+          resumé
+        </Link>
+        <div>|</div>
         <Socials openSideNav={openSideNav} />
       </div>
-      <Sidebar openSideNav={openSideNav} setOpenSideNav={setOpenSideNav} />
+      <Sidebar resumeUrl={resumeUrl} openSideNav={openSideNav} />
     </div>
   );
 };
