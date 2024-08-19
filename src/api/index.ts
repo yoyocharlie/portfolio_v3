@@ -13,18 +13,18 @@ export const getSocials = async () => {
 };
 
 export const getProjects = async () => {
-  const data = await api.fetch<Project[]>(`*[_type == "project"] {
+  const { projects } = await api.fetch<{
+    projects: Project[];
+  }>(`*[_type == "projects"][0] {
+  "projects": projectData[] {
     title,
-    tech,
-    'description': description[0].children[0].text,
-    'imgUrls': images[].asset->url  }`);
-  const order = ["Gena", "Biscuit", "Pretzel"];
+    "description": description[0].children[0].text,
+    "imageUrls": images[].asset->url,
+    tech
+  }
+}`);
 
-  const sortedData: Project[] = data.sort((a, b) => {
-    return order.indexOf(a.title) - order.indexOf(b.title);
-  });
-
-  return sortedData;
+  return projects;
 };
 
 export const getAboutMe = async () => {

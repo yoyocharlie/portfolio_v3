@@ -38,15 +38,15 @@ const Project = ({ project }: Props) => {
     >
       <h3 className="text-heading">{project.title}</h3>
       <div className="md:flex md:gap-5">
-        {project.imgUrls?.length > 0 && (
-          <Carousel projectTitle={project.title} urls={project.imgUrls} />
+        {project.imageUrls?.length > 0 && (
+          <Carousel projectTitle={project.title} urls={project.imageUrls} />
         )}
         <div
           ref={terminalRef}
-          className={`flex grow font-sans text-body md:font-light ${!project.imgUrls ? "w-full flex-col gap-5 md:flex-row" : "flex-col gap-10 md:basis-[16%] md:justify-between"} `}
+          className={`flex grow font-sans text-body md:font-light ${!project.imageUrls ? "w-full flex-col gap-5 md:flex-row" : "flex-col gap-10 md:basis-[16%] md:justify-between"} `}
         >
           <div
-            className={`${!project.imgUrls ? "md:basis-[60%]" : ""} order-1 h-40 rounded-md px-2 pt-1 md:h-60 md:bg-black md:font-mono md:text-sm md:text-white ${terminalInView && "animate-fade-up"}`}
+            className={`${!project.imageUrls ? "md:basis-[60%]" : ""} order-1 rounded-md px-2 pt-1 md:h-60 md:bg-black md:font-mono md:text-sm md:text-white ${terminalInView && "animate-fade-up"}`}
           >
             <TypeAnimation
               sequence={[
@@ -74,7 +74,7 @@ const Project = ({ project }: Props) => {
             />
           </div>
           <div
-            className={`${!project.imgUrls ? "h-fit basis-[35%]" : ""} order-2 flex flex-wrap gap-2 ${terminalInView && "animate-flip-up"}`}
+            className={`${!project.imageUrls ? "h-fit basis-[35%]" : ""} order-2 flex flex-wrap gap-2 ${terminalInView && "animate-flip-up"}`}
           >
             {tech}
           </div>

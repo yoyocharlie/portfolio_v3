@@ -6,6 +6,6 @@ export type Social = {
 export type Project = {
   title: string;
   description: string;
-  imgUrls: string[];
+  imageUrls: string[];
   tech: string[];
 };
