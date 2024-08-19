@@ -35,7 +35,7 @@ const Accordion: React.FC = () => {
         <div className="collapse-title pl-0 text-xl">
           Favorite Tech Right Now
         </div>
-        <div className="text-body collapse-content font-sans font-light">
+        <div className="collapse-content font-sans text-body font-light">
           <div className="">
             <div className="mb-5">
               Lately I&apos;ve been enjoying scaffolding applications with{" "}
@@ -52,7 +52,7 @@ const Accordion: React.FC = () => {
               <div className="mb-4 font-medium">
                 My favorite tools include 👇
               </div>
-              <ul className="text-body max-w-[500px]">
+              <ul className="max-w-[500px] text-body">
                 <li className="mb-3 flex items-start gap-5">
                   <Link
                     target="_blank"
@@ -140,7 +140,7 @@ const Accordion: React.FC = () => {
           onClick={() => handleItemClick(1)}
         />
         <div className="collapse-title pl-0 text-xl">Current Project</div>
-        <div className="text-body collapse-content font-sans font-light">
+        <div className="collapse-content font-sans text-body font-light">
           <div className="mb-5">
             I&apos;m part of an agile team that uses{" "}
             <Link
@@ -186,8 +186,8 @@ const Accordion: React.FC = () => {
           onClick={() => handleItemClick(2)}
         />
         <div className="collapse-title pl-0 text-xl">Non-Programming Stuff</div>
-        <div className="text-body collapse-content font-sans font-light">
-          <div className="mb-5 font-normal">
+        <div className="collapse-content font-sans text-body font-light">
+          <div className="mb-5">
             When I&apos;m not programming, I&apos;m usually making music or
             staring at the milk in the fridge — trying to find the milk in the
             fridge.

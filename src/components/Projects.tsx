@@ -69,7 +69,7 @@ const Projects = () => {
         </span>
       </h2>
       <p className="font-sans text-body font-medium">
-        Currently my projects are all internal tools, so I can&apos;t share the
+        Most of my projects are internal tools, so I can&apos;t share the
         repositories, but I can tell you what I&apos;ve been up to behind the
         scenes!
       </p>

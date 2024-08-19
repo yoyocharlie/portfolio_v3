@@ -8,4 +8,6 @@ export type Project = {
   description: string;
   imageUrls: string[];
   tech: string[];
+  repo: string | null;
+  siteLink: string | null;
 };

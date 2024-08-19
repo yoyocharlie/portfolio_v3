@@ -25,10 +25,6 @@ const Terminal = () => {
     <div className="relative mt-32">
       <div
         className={`container ml-auto mr-auto h-36 w-[90%] max-w-[1400px] rounded-md bg-black px-1 md:w-[80%]`}
-        // style={{
-        //   boxShadow: `-${mouseY}px -${mouseX}px gray`,
-        //   transform: `skewX(${mouseY}deg) skewY(${mouseX}deg)`,
-        // }}
       >
         <TypeAnimation
           sequence={[

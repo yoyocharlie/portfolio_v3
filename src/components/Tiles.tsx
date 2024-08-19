@@ -108,7 +108,7 @@ const Tiles = () => {
       </div>
       <div className="row-span-2 p-5">
         <div className="mb-5 text-3xl">Non-Programming Stuff</div>
-        <div className="font-sans text-body font-extralight">
+        <div className="font-sans text-body">
           <div className="mb-5">
             When I&apos;m not programming, I&apos;m usually making music or
             staring at the milk in the fridge — trying to find the milk in the

@@ -20,7 +20,9 @@ export const getProjects = async () => {
     title,
     "description": description[0].children[0].text,
     "imageUrls": images[].asset->url,
-    tech
+    tech,
+    repo,
+    siteLink
   }
 }`);
 
