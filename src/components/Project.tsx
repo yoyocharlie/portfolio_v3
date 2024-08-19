@@ -34,8 +34,8 @@ const Project = ({ project }: Props) => {
       ref={projectRef}
       className={`${projectInView ? "animate-fade-up" : ""} mb-16 mt-10`}
     >
-      <div className="flex items-center justify-between">
-        <h3 className="text-heading">{project.title}</h3>
+      <div className="mb-4 flex flex-col justify-between gap-2 md:flex-row md:items-center">
+        <h3 className="text-heading leading-8">{project.title}</h3>
         <ul className="flex gap-5">
           {project.repo && (
             <li>
